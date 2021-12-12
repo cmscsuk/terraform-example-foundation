@@ -1,10 +1,14 @@
+CloudGarage LLP
+
 # terraform-example-foundation
+
 This is an example repo showing how the CFT Terraform modules can be composed to build a secure GCP foundation, following the [Google Cloud security foundations guide](https://services.google.com/fh/files/misc/google-cloud-security-foundations-guide.pdf).
 The supplied structure and code is intended to form a starting point for building your own foundation with pragmatic defaults you can customize to meet your own requirements. Currently, the step 0 is manually executed.
 From step 1 onwards, the Terraform code is deployed by leveraging either Google Cloud Build (by default) or Jenkins.
 Cloud Build has been chosen by default to allow teams to quickly get started without needing to deploy a CI/CD tool, although it is worth noting the code can easily be executed by your preferred tool.
 
 ## Overview
+
 This repo contains several distinct Terraform projects each within their own directory that must be applied separately, but in sequence.
 Each of these Terraform projects are to be layered on top of each other, running in the following order.
 
@@ -14,6 +18,7 @@ This stage executes the [CFT Bootstrap module](https://github.com/terraform-goog
 For CI/CD pipelines, you can use either Cloud Build (by default) or Jenkins. If you want to use Jenkins instead of Cloud Build, please see [README-Jenkins](./0-bootstrap/README-Jenkins.md) on how to use the included Jenkins sub-module.
 
 The bootstrap step includes:
+
 - The `prj-b-seed` project, which contains:
   - Terraform state bucket
   - Custom Service Account used by Terraform to create new resources in GCP
